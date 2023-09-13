@@ -7,6 +7,7 @@ from toucan import ELEPHANT, SHREK, TOUCAN
 
 toucanToken = os.environ['TOKEN']
 
+
 class AsciiArtButton(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
@@ -23,20 +24,17 @@ class AsciiArtButton(discord.ui.View):
 
     @discord.ui.button(label="Summon SHREK", emoji="🧅",
                        style=discord.ButtonStyle.green)
-    async def gachi(self, interaction: discord.Interaction, button: discord.ui.Button):
+    async def shrek(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(content=SHREK, delete_after=5)
-
-    async def setup_hook(self) -> None:
-        self.add_view(AsciiArtButton())
 
 
 def find_channel(server):
-    try:
-        channel = discord.utils.get(server.channels, name="toucan")
+    channel = discord.utils.get(server.channels, name="toucan")
+    if channel:
         print(f'channel found {channel.id}')
-    except:
+    else:
         channel = 0000000000000000000
-        print(f'channel "toucan" does not exist in server: {server}')
+        print(f'channel "toucan" does not exist for server: {server}')
     return channel
 
 
@@ -69,19 +67,20 @@ def run_discord_bot():
         if message.author == bot.user:
             return
 
-        serverChannel = find_channel(message.guild)
-        channel = bot.get_channel(serverChannel.id)
+        server_channel = find_channel(message.guild)
+        channel = bot.get_channel(server_channel.id)
         user_message = str(message.content)
-        print(user_message)
 
-        if message.channel == channel:
-            if "praise him" in user_message.lower():
-                await message.channel.send(content="All praise le great toucan", delete_after=5)
-                await message.delete(delay=5)
-            elif bot.is_owner:
-                await message.delete()
-            else:
-                await message.author.send('The toucan channel is only for praising le toucan. Type "praise him" and nothing else.')
-                await message.delete()
+        if message.channel != channel:
+            pass
+        elif "praise him" in user_message.lower():
+            await message.channel.send(content="All praise le great toucan", delete_after=5)
+            await message.delete(delay=5)
+        elif bot.is_owner:
+            await message.delete()
+        else:
+            await message.author.send(
+                'The toucan channel is only for praising le toucan. Type "praise him" and nothing else.')
+            await message.delete()
 
     bot.run(toucanToken)
