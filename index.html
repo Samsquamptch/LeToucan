@@ -9,29 +9,34 @@
     <body>
         <nav class="topnav">
             <ul>
+                <li><a href="#Home">Home</a></li>
                 <li><a href="#Features">Features</a></li>
                 <li><a href="#Setup">Replit</a></li>
             </ul>
         </nav>
 
-        <h1>Le Toucan Bot</h1>
+        <h1 id="Home">Le Toucan Bot</h1>
         <img src="docs\toucan.png" alt="Praise him!" class="center">
-        <p>A simple discord bot that posts Le Toucan (and other ASCII art images) in a
-            specific channel called "toucan". This is hardcoded in the text, but
-            it wouldn't be hard to change it to another channel name (why would you
-            want to do that though??).
+        <p class="push">A simple discord bot that posts Le Toucan (and other ASCII art images) in a
+            specific channel called "toucan". This is hardcoded in the text, but it wouldn't be hard to
+            change it to another channel name (why would you want to do that though??). configured to run on
+            replit by default, but works on pretty much anything. It's also pretty simple to edit the buttons:
+            just replace the relevant ASCII art variable in toucan.py and update the associated button label and
+            you're good to go!
         </p>
         <h2 id="Features">Features</h2>
-        <li>Three (THREE!) buttons with their own ASCII art.</li>
-        <li>Automatic deployment on all linked servers when the bot starts. That's right, it runs on multiple servers at once!</li>
-        <li>If the toucan is praised (some variation of "praise him") in the toucan channel, the bot replies.</li>
-        <li>All other messages posted in the toucan channel are deleted instantly.</li>
-        <li>The bot also DMs the user in question and tells them to only praise le toucan (except if they're the bot's owner).</li>
-        <li>To avoid clutter, all messages from the bot are deleted after 5 seconds.</li>
-        <li>The ability to refresh the bot if things go wrong (not very often, hopefully).</li>
-        <li>Configured to run on Replit, just copy the files across and enter the bot token (easy!).</li>
+        <ul class="list">
+            <li>Three (THREE!) buttons with their own ASCII art.</li>
+            <li>Automatic deployment on all linked servers when the bot starts. That's right, it runs on multiple servers at once!</li>
+            <li>If the toucan is praised (some variation of "praise him") in the toucan channel, the bot replies.</li>
+            <li>All other messages posted in the toucan channel are deleted instantly.</li>
+            <li>The bot also DMs the user in question and tells them to only praise le toucan (except if they're the bot's owner).</li>
+            <li>To avoid clutter, all messages from the bot are deleted after 5 seconds.</li>
+            <li>The ability to refresh the bot if things go wrong (not very often, hopefully).</li>
+            <li>Want to run it on Replit? Just copy the files across and enter the bot token (easy!).</li>
+        </ul>
         <h2 id="Setup">Set up instructions (for Replit)</h2>
-        <ol type="1">
+        <ol type="1" class="list">
             <li>Ensure you have a channel called "toucan" (all lower case) on the server in question.</li>
             <li>Create a discord bot on the developer portal. <a href="https://discord.com/developers/docs/getting-started">instructions on making a bot can be found here.</a></li>
             <li>Get the bot token, invite the bot to the server with the "Send Messages" and "Manage Messages" bot permissions enabled.</li>
