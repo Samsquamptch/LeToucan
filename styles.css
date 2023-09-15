@@ -2,7 +2,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 50%;
   }
 
 .topnav {
@@ -13,6 +13,11 @@
 
 .topnav ul {
   list-style-type: none;
+}
+
+p {
+  width: 750px;
+  text-align: justify;
 }
 
 .topnav a {
