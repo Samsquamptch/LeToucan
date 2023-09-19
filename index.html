@@ -7,7 +7,7 @@
     </head>
     
     <body>
-        <nav class="topnav">
+        <nav id="navbar">
             <ul>
                 <li><a href="#Top">Home</a></li>
                 <li><a href="#Features">Features</a></li>
@@ -65,17 +65,6 @@
                 <p>Page Author - Samsquamptch (<a href="https://github.com/Samsquamptch">GitHub account</a>)</p>
             </footer>
         </div>
-        <script>window.onscroll = function() {myFunction()};
-
-            var navbar = document.getElementById("navbar");
-            var sticky = navbar.offsetTop;
-            
-            function myFunction() {
-              if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-              } else {
-                navbar.classList.remove("sticky");
-              }
-            }</script>
+        <script src="scripts\move-nav.js"></script>
     </body>
 </html>
